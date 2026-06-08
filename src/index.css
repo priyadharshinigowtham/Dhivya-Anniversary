@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --font-romantic: "Great Vibes", cursive;
+  --font-serifElegant: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+
+  --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-fade-in: fadeIn 1.5s ease-out forwards;
+  --animate-heartbeat: heartbeat 1.5s ease-in-out infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-15px) scale(1.03); }
+  }
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(15px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.08); }
+    40% { transform: scale(1.03); }
+    60% { transform: scale(1.12); }
+  }
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  background-color: #0d0407; /* Sleek elegant dark romantic base background */
+  font-family: 'Inter', sans-serif;
+  color: #fce7f3;
+}
+
+/* Custom styling for ancient parchment letter */
+.parchment {
+  background: radial-gradient(circle, #fcf8eb 30%, #f1dfbc 100%);
+  border: 2px solid #bfa15f;
+  box-shadow: 
+    0 15px 35px rgba(0,0,0,0.6), 
+    inset 0 0 60px rgba(115, 80, 20, 0.25);
+  position: relative;
+}
+
+/* Vintage burned edge effect styling */
+.parchment::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border: 1px solid #735014;
+  opacity: 0.15;
+  pointer-events: none;
+  margin: 6px;
+}
+
+/* Custom scrollbar for premium romantic aesthetics */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0d0407;
+}
+::-webkit-scrollbar-thumb {
+  background: #be185d; /* Pink-700 */
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #db2777; /* Pink-600 */
+}
