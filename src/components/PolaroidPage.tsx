@@ -11,31 +11,31 @@ interface Slide {
 
 const slides: Slide[] = [
   {
-    src: '/bg_generic.png',
+    src: '/animated_bg.gif',
     quote: 'Time may change many things, but my heart still chooses you today with the same love, trust, and excitement as the day we began.',
   },
   {
-    src: '/bg_generic.png',
+    src: '/animated_bg.gif',
     quote: 'I love you with the breath, smiles, and tears of all my life.',
   },
   {
-    src: '/bg_generic.png',
+    src: '/animated_bg.gif',
     quote: 'Love is composed of a single soul inhabiting two bodies.',
   },
   {
-    src: '/bg_generic.png',
+    src: '/animated_bg.gif',
     quote: 'One day you will ask me which is more important? My life or yours? I will say mine and you will walk away not knowing that you are my life.',
   },
   {
-    src: '/bg_generic.png',
+    src: '/animated_bg.gif',
     quote: 'I love you without knowing how, or when, or from where. I love you simply, without problems or pride.',
   },
   {
-    src: '/bg_generic.png',
+    src: '/animated_bg.gif',
     quote: 'If I could live my life a thousand times, I would still search for your hand in every lifetime and fall in love with you all over again.',
   },
   {
-    src: '/bg_generic.png',
+    src: '/animated_bg.gif',
     quote: 'The day you entered my life, you turned my ordinary world into a beautiful love story that I never want to end.',
   },
 ];

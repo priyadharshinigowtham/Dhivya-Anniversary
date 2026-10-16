@@ -63,7 +63,7 @@ export const LetterPage: React.FC<LetterPageProps> = ({ onContinue }) => {
               {/* Letter Body (Larger Font Size) */}
               <div className="w-full space-y-6 text-lg md:text-xl leading-relaxed text-amber-950/90 text-justify">
                 <p className="font-bold text-rose-950 text-xl not-italic">
-                  My Dearest Vishagan,
+                  My Dearest Partner,
                 </p>
                 
                 <p>
@@ -137,13 +137,13 @@ export const LetterPage: React.FC<LetterPageProps> = ({ onContinue }) => {
                 {/* Signature & Closing */}
                 <div className="pt-6 flex flex-col items-end">
                   <p className="text-sm md:text-base text-amber-800/80 italic font-semibold">With all my love, always and forever,</p>
-                  <p className="text-2xl md:text-3xl font-bold text-rose-800 mt-1">Dhivya ❤️</p>
+                  <p className="text-2xl md:text-3xl font-bold text-rose-800 mt-1">Beloved ❤️</p>
                 </div>
               </div>
 
               {/* Bottom decorative details */}
               <div className="w-full border-t border-amber-800/20 mt-8 pt-6 flex flex-col items-center text-center text-xs md:text-sm text-amber-800/80 italic space-y-1 select-none">
-                <p className="font-semibold text-rose-900/90 not-italic">Vishagan ❤️ Dhivya</p>
+                <p className="font-semibold text-rose-900/90 not-italic">Partner ❤️ Beloved</p>
                 <p>A Love Written by Destiny</p>
                 <p className="text-[11px] tracking-wide uppercase font-semibold text-amber-900/60 font-sans mt-1">
                   7 Years of Love • Trust • Togetherness • Forever

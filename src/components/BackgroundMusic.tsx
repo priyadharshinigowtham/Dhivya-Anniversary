@@ -8,21 +8,31 @@ interface BackgroundMusicProps {
   isMuted: boolean;
   setIsMuted: (muted: boolean) => void;
   page: 'landing' | 'quiz' | 'letter' | 'polaroid' | 'memorylane' | 'ending';
+  /** Current stage index for MemoryLane (0‑based) */
+  currentStage?: number;
+  /** Total number of stages in MemoryLane */
+  stageCount?: number;
 }
 
-export const BackgroundMusic: React.FC<BackgroundMusicProps> = ({ isPlaying, setIsPlaying, isMuted, setIsMuted, page }) => {
+export const BackgroundMusic: React.FC<BackgroundMusicProps> = ({ isPlaying, setIsPlaying, isMuted, setIsMuted, page, currentStage = 0, stageCount = 0 }) => {
   const player1Ref = useRef<any>(null); // Song 1: Landing / Quiz / Ending
   const player2Ref = useRef<any>(null); // Song 2: Letter
   const player3Ref = useRef<any>(null); // Song 3: Polaroid
+  const player4Ref = useRef<any>(null); // Song 4: MemoryLane chapter 5 (custom)
   const [isPlayer1Ready, setIsPlayer1Ready] = useState(false);
+  const [isPlayer4Ready, setIsPlayer4Ready] = useState(false);
 
   // Keep refs in sync with latest props so YT onReady callbacks see fresh values
   const isPlayingRef = useRef(isPlaying);
   const pageRef = useRef(page);
   const isMutedRef = useRef(isMuted);
+  const currentStageRef = useRef(currentStage);
+  const stageCountRef = useRef(stageCount);
   useEffect(() => { isPlayingRef.current = isPlaying; }, [isPlaying]);
   useEffect(() => { pageRef.current = page; }, [page]);
   useEffect(() => { isMutedRef.current = isMuted; }, [isMuted]);
+  useEffect(() => { currentStageRef.current = currentStage; }, [currentStage]);
+  useEffect(() => { stageCountRef.current = stageCount; }, [stageCount]);
 
   const safePlay = (p: any) => {
     if (!p || typeof p.playVideo !== 'function') return;
@@ -38,21 +48,31 @@ export const BackgroundMusic: React.FC<BackgroundMusicProps> = ({ isPlaying, set
     const p1 = player1Ref.current;
     const p2 = player2Ref.current;
     const p3 = player3Ref.current;
+    const p4 = player4Ref.current;
     const playing = isPlayingRef.current;
     const pg = pageRef.current;
+    const cur = currentStageRef.current;
+    const total = stageCountRef.current;
 
     if (!playing) {
-      safePause(p1); safePause(p2); safePause(p3);
+      safePause(p1); safePause(p2); safePause(p3); safePause(p4);
       return;
     }
     if (pg === 'letter') {
-      safePause(p1); safePlay(p2); safePause(p3);
+      safePause(p1); safePlay(p2); safePause(p3); safePause(p4);
     } else if (pg === 'polaroid') {
-      safePause(p1); safePause(p2); safePlay(p3);
+      safePause(p1); safePause(p2); safePlay(p3); safePause(p4);
     } else if (pg === 'landing' || pg === 'quiz' || pg === 'ending') {
-      safePlay(p1); safePause(p2); safePause(p3);
+      safePlay(p1); safePause(p2); safePause(p3); safePause(p4);
     } else if (pg === 'memorylane') {
-      safePause(p1); safePause(p2); safePause(p3);
+      const isLast = total > 0 && cur === total - 1;
+      if (isLast && isPlayer4Ready) {
+        // Play custom song for chapter 5
+        safePause(p1); safePause(p2); safePlay(p4); safePause(p3);
+      } else {
+        // No background music for other MemoryLane chapters; MemoryLanePage handles its own music
+        safePause(p1); safePause(p2); safePause(p3); safePause(p4);
+      }
     }
   };
 
@@ -83,15 +103,21 @@ export const BackgroundMusic: React.FC<BackgroundMusicProps> = ({ isPlaying, set
         playerVars: { autoplay: 0, controls: 0, loop: 1, playlist: 'G4epKa11ets', rel: 0, iv_load_policy: 3 },
         events: { onReady: applyPlayback },
       });
+      // ---- New player for MemoryLane chapter 5 ----
+      player4Ref.current = new window.YT.Player('yt-bg-p4', {
+        videoId: 'kJeZg-maayI',
+        playerVars: { autoplay: 0, controls: 0, loop: 1, playlist: 'kJeZg-maayI', rel: 0, iv_load_policy: 3 },
+        events: { onReady: () => setIsPlayer4Ready(true) },
+      });
     });
 
     return () => {
       // Destroy players when component unmounts
-      [player1Ref, player2Ref, player3Ref].forEach(ref => {
+      [player1Ref, player2Ref, player3Ref, player4Ref].forEach(ref => {
         try { ref.current?.destroy(); } catch { /* ignore */ }
         ref.current = null;
       });
-      ['yt-bg-p1', 'yt-bg-p2', 'yt-bg-p3'].forEach(id => {
+      ['yt-bg-p1', 'yt-bg-p2', 'yt-bg-p3', 'yt-bg-p4'].forEach(id => {
         document.getElementById(id)?.remove();
       });
     };

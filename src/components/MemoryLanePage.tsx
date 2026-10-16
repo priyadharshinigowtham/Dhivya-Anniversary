@@ -5,6 +5,7 @@ interface MemoryLanePageProps {
   onContinue: () => void;
   isPlaying: boolean;
   isMuted: boolean;
+  setCurrentStage?: (stage: number) => void;
 }
 
 interface Stage {
@@ -21,7 +22,7 @@ const stages: Stage[] = [
   {
     id: 1,
     theme: 'Engagement',
-    image: '/engagement.jpeg',
+    image: '/animated_bg.gif',
     videoId: '7rAlDnJmi0w',
     emoji: '💍',
     color: 'from-[#2e0915] via-[#4d0c27] to-[#120006]',
@@ -30,7 +31,7 @@ const stages: Stage[] = [
   {
     id: 2,
     theme: 'First Date',
-    image: '/First date.jpeg',
+    image: '/animated_bg.gif',
     videoId: 'uED3f6_yFvk',
     emoji: '🌹',
     color: 'from-[#38060b] via-[#590e17] to-[#1a0004]',
@@ -39,7 +40,7 @@ const stages: Stage[] = [
   {
     id: 3,
     theme: 'Marriage',
-    image: '/Marriage.jpeg',
+    image: '/animated_bg.gif',
     videoId: 'bDU65OMz66o',
     emoji: '👰‍♀️',
     color: 'from-[#330321] via-[#54073a] to-[#14000b]',
@@ -48,25 +49,25 @@ const stages: Stage[] = [
   {
     id: 4,
     theme: 'Our First Baby',
-    image: '/Hirithik.jpeg',
+    image: '/animated_bg.gif',
     videoId: 'bagzMke6yoo',
     emoji: '👶',
     color: 'from-[#361809] via-[#54280f] to-[#170500]',
-    description: 'Welcoming our sweet firstborn, Hirithik, who brought infinite sunshine into our lives.',
+    description: 'Welcoming our sweet firstborn, Sun, who brought infinite sunshine into our lives.',
   },
   {
     id: 5,
     theme: 'Our Second Baby',
-    image: '/Rohit.jpeg',
-    videoId: 'jErN2fE8q68',
+    image: '/animated_bg.gif',
+    videoId: 'kJeZg-maayI',
     emoji: '🍼',
     color: 'from-[#07242d] via-[#10404e] to-[#010e13]',
-    description: 'Completing our family with the arrival of our darling second son, Rohit.',
+    description: 'Completing our family with the arrival of our darling second son, Moon.',
   },
   {
     id: 6,
     theme: 'Our Family',
-    image: '/Family.jpeg',
+    image: '/animated_bg.gif',
     videoId: 'O5GyI71lXFM',
     emoji: '🏡',
     color: 'from-[#190a2e] via-[#321759] to-[#090214]',
@@ -75,7 +76,7 @@ const stages: Stage[] = [
   {
     id: 7,
     theme: 'Long Distance',
-    image: '/long distance.jpeg',
+    image: '/animated_bg.gif',
     videoId: 'nwzZ-Ig8WPc',
     emoji: '✈️',
     color: 'from-[#181a2e] via-[#282a4c] to-[#090a16]',

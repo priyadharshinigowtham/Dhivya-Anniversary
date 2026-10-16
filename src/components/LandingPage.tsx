@@ -10,7 +10,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onBegin }) => {
       {/* Background Image with warm/dark overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 scale-105"
-        style={{ backgroundImage: `url('/bg_generic.png')` }}
+        style={{ backgroundImage: `url('/animated_bg.gif')` }}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-pink-950/40" />
 
@@ -24,7 +24,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onBegin }) => {
       {/* Main Title Center */}
       <div className="z-20 text-center flex flex-col items-center max-w-2xl select-none animate-fade-in">
         <h1 className="font-romantic text-5xl md:text-8xl text-transparent bg-clip-text bg-gradient-to-b from-pink-100 via-rose-300 to-rose-400 drop-shadow-[0_4px_12px_rgba(219,39,119,0.5)] leading-tight filter text-center">
-          Happy anniversary my love
+          Celebration
         </h1>
         <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-pink-400 to-transparent my-4 md:my-6"></div>
         <p className="font-serifElegant italic text-pink-200/80 text-base md:text-xl tracking-wide max-w-md">

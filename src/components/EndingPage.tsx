@@ -159,12 +159,12 @@ export const EndingPage: React.FC<EndingPageProps> = ({ onRestart }) => {
               className="font-romantic text-4xl md:text-6xl text-rose-800 text-center font-bold mb-2 md:mb-4 select-text drop-shadow-[0_1px_0px_rgba(255,255,255,0.8)]"
               style={{ fontFamily: "'Great Vibes', cursive" }}
             >
-              My Dearest Vishagan,
+              My Dearest Love,
             </h2>
 
             <div className="text-sm md:text-lg text-amber-900/95 font-serif space-y-3 md:space-y-4 select-text">
               <p>
-                These 7 years have been the most beautiful chapters of my life. From our first date, to the day we said "I do", to holding our precious boys, <strong>Hirithik</strong> and <strong>Rohit</strong>, and through every mile of distance we've crossed—every single moment has been a blessing because of you.
+                These 7 years have been the most beautiful chapters of my life. From our first date, to the day we said "I do", to holding our precious boys, <strong>Sun</strong> and <strong>Moon</strong>, and through every mile of distance we've crossed—every single moment has been a blessing because of you.
               </p>
               
               <p>
@@ -183,7 +183,7 @@ export const EndingPage: React.FC<EndingPageProps> = ({ onRestart }) => {
             {/* Signature */}
             <div className="pt-3 md:pt-6 flex flex-col items-end select-text">
               <p className="text-xs md:text-sm text-amber-800/80 italic font-semibold font-serif">With all my heart, always & forever,</p>
-              <p className="text-2xl md:text-3xl font-romantic font-bold text-rose-800 mt-1" style={{ fontFamily: "'Great Vibes', cursive" }}>Dhivya ❤️</p>
+              <p className="text-2xl md:text-3xl font-romantic font-bold text-rose-800 mt-1" style={{ fontFamily: "'Great Vibes', cursive" }}>Love ❤️</p>
             </div>
           </div>
         </div>

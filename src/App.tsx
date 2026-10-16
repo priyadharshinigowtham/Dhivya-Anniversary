@@ -14,6 +14,9 @@ function App() {
   // Music starts as soon as the page loads — Song 1 plays on landing
   const [isMusicPlaying, setIsMusicPlaying] = useState<boolean>(true);
   const [isMusicMuted, setIsMusicMuted] = useState<boolean>(false);
+  // Track current stage for MemoryLane
+  const [currentStage, setCurrentStage] = useState<number>(0);
+  const [stageCount, setStageCount] = useState<number>(0);
 
   // Landing → Quiz (Song 1 keeps playing)
   const handleBegin = () => {
@@ -58,6 +61,8 @@ function App() {
         isMuted={isMusicMuted}
         setIsMuted={setIsMusicMuted}
         page={page}
+        currentStage={currentStage}
+        stageCount={stageCount}
       />
 
       {/* Page Routing */}
