@@ -10,7 +10,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onBegin }) => {
       {/* Background Image with warm/dark overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 scale-105"
-        style={{ backgroundImage: `url('/ChatGPT Image Jun 7, 2026, 04_45_15 PM.png')` }}
+        style={{ backgroundImage: `url('/bg_generic.png')` }}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-pink-950/40" />
 
